@@ -3,11 +3,10 @@
 <br>
 <br>
 
-<div style="text-align: center; font-size: 30px; font-weight: bold; margin-bottom: 0;">
-  🔨 공사중 🧱
-</div>
+<p align="center">
+  <strong>🔨 공사중! 🧱</strong>
+</p>
 
-<br>
 <br>
 <br>
 

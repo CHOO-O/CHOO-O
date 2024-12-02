@@ -24,5 +24,8 @@
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=white)
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=flat&logo=slack&logoColor=white)
 
-<!-- # Certifications
- -->
+# Certifications
+
+# Status
+
+![Programmers Badge](https://raw.githubusercontent.com/CHOO-O/Programmers_Badge_Generator/main/result/result.svg)

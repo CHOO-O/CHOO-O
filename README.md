@@ -23,9 +23,13 @@
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=white)
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=flat&logo=slack&logoColor=white)
+![Notion](https://img.shields.io/badge/Notion-000000?style=flat&logo=slack&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white)
 
-# Certifications
+<br>
 
 # Status
 
 ![Programmers Badge](https://raw.githubusercontent.com/CHOO-O/Programmers_Badge_Generator/main/result/result.svg)
+
+<!-- 넣을 것) 마리레 정리하기, 이메일 넣기, 블로그 대용 기술공부레포 정리해서 만들어 넣기, 기술스택 표 등으로 정리하기 -->

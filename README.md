@@ -32,4 +32,6 @@
 
 ![Programmers Badge](https://raw.githubusercontent.com/CHOO-O/Programmers_Badge_Generator/main/result/result.svg)
 
+[![Solved.ac Badge](http://mazassumnida.wtf/api/v2/generate_badge?boj=choo_o)](https://solved.ac/choo_o})
+
 <!-- 넣을 것) 마리레 정리하기, 이메일 넣기, 블로그 대용 기술공부레포 정리해서 만들어 넣기, 기술스택 표 등으로 정리하기 -->

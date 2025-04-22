@@ -33,7 +33,7 @@ jobs:
         if: steps.check.outputs.skip != 'true'
         run: |
           NEW_LINK=$(cat badge/latest-link.txt)
-          sed -i "s|(<!--LATEST_LINK_START-->).*<!--LATEST_LINK_END-->|<!--LATEST_LINK_START-->${NEW_LINK}<!--LATEST_LINK_END-->|" README.md
+          sed -i "s|<!--LATEST_LINK_START-->.*<!--LATEST_LINK_END-->|<!--LATEST_LINK_START-->${NEW_LINK}<!--LATEST_LINK_END-->|" README.md
 
           git config user.name "github-actions"
           git config user.email "actions@github.com"

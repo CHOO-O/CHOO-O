@@ -28,49 +28,19 @@ jobs:
           grep -q "$NEW_LINK" README.md && echo "skip=true" >> $GITHUB_OUTPUT || echo "skip=false" >> $GITHUB_OUTPUT
 
       # 4. 링크 치환 및 커밋
-      name: Update README with latest blog post link
-
-on:
-  schedule:
-    - cron: "0 15 * * *" # 매일 0시 (KST 기준)
-
-jobs:
-  update-readme:
-    runs-on: ubuntu-latest
-
-    steps:
-      # 1. 현재 레포지토리 체크아웃
-      - name: Checkout profile repo
-        uses: actions/checkout@v3
-
-      # 2. badge/ 디렉터리 생성 및 링크 텍스트 다운로드
-      - name: Create badge directory
-        run: mkdir -p badge
-
-      - name: Download latest link file
-        run: curl -s -o badge/latest-link.txt https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/latest-link.txt
-
-      # 3. 현재 README에 포함된 링크와 비교
-      - name: Check if README needs update
-        id: check
+      - name: Update README.md with latest link
+        if: steps.check.outputs.skip != 'true'
         run: |
           NEW_LINK=$(cat badge/latest-link.txt)
-          grep -q "$NEW_LINK" README.md && echo "skip=true" >> $GITHUB_OUTPUT || echo "skip=false" >> $GITHUB_OUTPUT
+          sed -i "s|(<!--LATEST_LINK_START-->).*<!--LATEST_LINK_END-->|<!--LATEST_LINK_START-->${NEW_LINK}<!--LATEST_LINK_END-->|" README.md
 
-      # 4. 링크 치환 및 커밋
-      - name: Update README.md with latest link
-      if: steps.check.outputs.skip != 'true'
-      run: |
-        NEW_LINK=$(cat badge/latest-link.txt)
-        sed -i "s|(<!--LATEST_LINK_START-->).*<!--LATEST_LINK_END-->|<!--LATEST_LINK_START-->${NEW_LINK}<!--LATEST_LINK_END-->|" README.md
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add README.md
 
-        git config user.name "github-actions"
-        git config user.email "actions@github.com"
-        git add README.md
-
-        if git diff --cached --quiet; then
-          echo "❎ 변경사항 없음 - 커밋 생략"
-        else
-          git commit -m "🔄 Update latest blog post link"
-          git push
-        fi
+          if git diff --cached --quiet; then
+            echo "❎ 변경사항 없음 - 커밋 생략"
+          else
+            git commit -m "🔄 Update latest blog post link"
+            git push
+          fi

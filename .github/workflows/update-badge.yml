@@ -20,6 +20,7 @@ jobs:
       # 03-02. 블로그 레포지토리에서 최신 링크 파일만 가져오기
       - name: Download latest-link.txt from blog repository
         run: |
+          mkdir -p badge
           curl -s -o badge/latest-link.txt https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/latest-link.txt
 
       # 03-03. README.md의 앵커 주석 사이의 링크 치환

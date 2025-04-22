@@ -6,6 +6,8 @@
 
 [![Blog](https://img.shields.io/badge/CHOO─study-2aa889?style=flat&logo=github&logoColor=white)](https://github.com/CHOO-O/CHOO-study)
 
+[![Last Post](https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/last-post.svg)](https://github.com/CHOO-O/CHOO-study/blob/main/LATEST_MD.md)
+
 <br>
 
 # Skills & Tools

@@ -1,6 +1,7 @@
 name: Update README with latest blog post link
 
 on:
+  workflow_dispatch: # 테스트를 위한 수동 수행 허용
   schedule:
     - cron: "0 15 * * *" # 매일 0시 (KST 기준)에 수행되도록 함
 

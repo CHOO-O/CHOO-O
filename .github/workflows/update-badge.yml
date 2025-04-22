@@ -1,46 +1,40 @@
-# 01. 워크플로우 이름 설정
-name: Update latest post link in README
+name: Update README with latest blog post link
 
-# 02. 트리거: 매일 밤 12시 (KST = 15:00 UTC)에 실행
 on:
   schedule:
-    - cron: "0 15 * * *" # 한국 시간 밤 12시
-  workflow_dispatch: # 수동 실행도 가능
+    - cron: "0 15 * * *" # 매일 0시 (KST 기준)
 
-# 03. 작업 정의
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      # 03-01. 기본 레포지토리 체크아웃
-      - name: Checkout main repository (CHOO-O/CHOO-O)
+      # 1. 현재 레포지토리 체크아웃
+      - name: Checkout profile repo
         uses: actions/checkout@v3
 
-      # 03-02. 블로그 레포지토리에서 최신 링크 파일만 가져오기
-      - name: Download latest-link.txt from blog repository
+      # 2. badge/ 디렉터리 생성 및 링크 텍스트 다운로드
+      - name: Download latest link file
         run: |
           mkdir -p badge
           curl -s -o badge/latest-link.txt https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/latest-link.txt
 
-      # 03-03. README.md의 앵커 주석 사이의 링크 치환
-      - name: Replace latest link in README.md
+      # 3. 현재 README에 포함된 링크와 비교
+      - name: Check if README needs update
+        id: check
         run: |
-          LATEST_LINK=$(cat badge/latest-link.txt)
+          NEW_LINK=$(cat badge/latest-link.txt)
+          grep -q "$NEW_LINK" README.md && echo "skip=true" >> $GITHUB_OUTPUT || echo "skip=false" >> $GITHUB_OUTPUT
 
-          # 범위를 주석 앵커 기준으로 치환
-          sed -i "/<!--LATEST_LINK_START-->/,/<!--LATEST_LINK_END-->/c\\<!--LATEST_LINK_START-->\n${LATEST_LINK}\n<!--LATEST_LINK_END-->" README.md
-
-      # 03-04. 변경 사항 커밋 및 푸시
-      - name: Commit and push changes
+      # 4. 링크 치환 및 커밋
+      - name: Update README.md with latest link
+        if: steps.check.outputs.skip != 'true'
         run: |
+          NEW_LINK=$(cat badge/latest-link.txt)
+          sed -i "s|(<!--LATEST_LINK_START-->).*<!--LATEST_LINK_END-->|<!--LATEST_LINK_START-->${NEW_LINK}<!--LATEST_LINK_END-->|" README.md
+
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-
           git add README.md
-          if git diff --cached --quiet; then
-            echo "❎ No changes to commit"
-          else
-            git commit -m "🔄 Update latest blog post link in README"
-            git push
-          fi
+          git commit -m "🔄 Update latest blog post link"
+          git push

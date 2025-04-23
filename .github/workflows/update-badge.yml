@@ -13,6 +13,9 @@ jobs:
       # 1. 현재 레포지토리 체크아웃
       - name: Checkout profile repo
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PROFILE_REPO_TOKEN }} # 수정된 부분
+          repository: CHOO-O/CHOO-O
 
       # 2. badge/ 디렉터리 생성 및 링크 텍스트 다운로드
       - name: Create badge directory

@@ -4,7 +4,7 @@
 
 # Blog
 
-[![Blog](https://img.shields.io/badge/CHOO─study-2aa889?style=flat&logo=github&logoColor=white)](https://github.com/CHOO-O/CHOO-study) [![Latest Post](https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/Latest-post.svg)](<!--LATEST_LINK_START-->https://github.com/CHOO-O/CHOO-study/blob/main/LATEST_MD.md<!--LATEST_LINK_END-->)
+[![Blog](https://img.shields.io/badge/CHOO─study-2aa889?style=flat&logo=github&logoColor=white)](https://github.com/CHOO-O/CHOO-study) [![Latest Post](https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/Latest-post.svg)](<!--LATEST_LINK_START-->https://github.com/CHOO-O/CHOO-study/blob/main/GitHub/badge-test22.md<!--LATEST_LINK_END-->)
 
 <br>
 

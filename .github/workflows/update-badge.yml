@@ -36,7 +36,7 @@ jobs:
         if: steps.check.outputs.skip != 'true'
         run: |
           NEW_LINK=$(cat badge/latest-link.txt)
-          sed -i "s|<!--LATEST_LINK_START-->.*<!--LATEST_LINK_END-->|<!--LATEST_LINK_START-->${NEW_LINK}<!--LATEST_LINK_END-->|" README.md
+          sed -i "/<!--LATEST_LINK_START-->/, /<!--LATEST_LINK_END-->/c\<!--LATEST_LINK_START-->\n[![Latest Post](https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/Latest-post.svg)](${NEW_LINK})\n<!--LATEST_LINK_END-->" README.md
 
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -45,6 +45,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "❎ 변경사항 없음 - 커밋 생략"
           else
-            git commit -m "🔄 Update latest blog post link"
+            git commit -m "Update latest blog post link"
             git push
           fi

@@ -7,9 +7,7 @@
 [![Blog](https://img.shields.io/badge/CHOO─study-2aa889?style=flat&logo=github&logoColor=white)](https://github.com/CHOO-O/CHOO-study)
 
 <!--LATEST_LINK_START-->
-
-[![Latest Post](https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/Latest-post.svg)](https://github.com/CHOO-O/CHOO-study/blob/main/GitHub/custom-badge.md)
-
+[![Latest Post](https://raw.githubusercontent.com/CHOO-O/CHOO-study/main/badge/Latest-post.svg)](https://github.com/CHOO-O/CHOO-study/blob/main/Algorithm/Brute-force.md)
 <!--LATEST_LINK_END-->
 
 <br>
